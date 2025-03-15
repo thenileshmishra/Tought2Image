@@ -5,7 +5,45 @@ This project implements a Dual-Encoder Joint VAE (or VQ-VAE) with CLIP Guidance 
 ## Folder Structure
 
 
----
+Thought2Image/
+├── data/
+│   ├── raw/
+│   │   ├── EEG/                   # Raw EEG recordings (e.g., CSV, EDF files)
+│   │   └── images/                # Raw image files (e.g., JPEG, PNG)
+│   ├── processed/
+│   │   ├── EEG/                   # Preprocessed EEG data (e.g., numpy arrays, TFRecords)
+│   │   └── images/                # Preprocessed images (resized, normalized)
+│   └── annotations/               # Labels, metadata, or text prompts for CLIP guidance
+├── notebooks/                     # Jupyter notebooks for EDA, preprocessing, and experiments
+│   ├── data_exploration.ipynb
+│   ├── preprocessing.ipynb
+│   └── model_evaluation.ipynb
+├── src/                           # Source code for model implementation and utilities
+│   ├── __init__.py
+│   ├── config.py                  # Configuration files (hyperparameters, paths)
+│   ├── data/                      
+│   │   ├── dataset.py             # Dataset classes for EEG & images
+│   │   └── dataloader.py          # Data loading utilities
+│   ├── models/                    
+│   │   ├── eeg_encoder.py         # EEG encoder implementation
+│   │   ├── image_encoder.py       # Image encoder (for VAE/VQ-VAE)
+│   │   ├── decoder.py             # Decoder architecture for image reconstruction
+│   │   ├── joint_vae.py           # Joint VAE/VQ-VAE that fuses EEG & image latents
+│   │   ├── clip_guidance.py       # Functions for extracting CLIP embeddings and computing CLIP loss
+│   │   └── loss.py                # Combined loss functions (reconstruction, KL, alignment, CLIP)
+│   ├── train.py                   # Training script for the full pipeline
+│   ├── inference.py               # Inference script for generating images from EEG only
+│   └── utils.py                   # Helper functions (logging, metrics, visualization)
+├── experiments/                   # Files related to experimental runs
+│   ├── logs/                      # Training logs, tensorboard files, etc.
+│   ├── checkpoints/               # Saved model weights and checkpoints
+│   └── results/                   # Generated images, evaluation metrics, and reports
+├── scripts/                       # Shell scripts for running experiments
+│   ├── run_training.sh
+│   └── run_inference.sh
+├── requirements.txt               # Python dependencies list
+├── README.md                      # Project overview and setup instructions
+└── LICENSE                        # License file
 
 ### 2. **requirements.txt**
 
@@ -54,3 +92,4 @@ output:
   checkpoint_dir: "experiments/checkpoints/"
   log_dir: "experiments/logs/"
   results_dir: "experiments/results/"
+

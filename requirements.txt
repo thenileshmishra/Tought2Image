@@ -29,3 +29,8 @@ scikit-learn==1.2.2
 
 # Optional: if using data augmentation libraries for small datasets
 albumentations==1.2.1
+
+mne
+matplotlib
+numpy
+datasets

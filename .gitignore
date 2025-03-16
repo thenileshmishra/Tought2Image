@@ -67,9 +67,7 @@ venv.bak/
 .idea/
 .vscode/
 
-# Data files (raw and processed data are usually large and not committed)
-data/raw/
-data/processed/
+
 
 # Experiment outputs: logs, checkpoints, and results
 experiments/logs/
@@ -83,3 +81,6 @@ temp/
 # System files
 .DS_Store
 Thumbs.db
+
+# Ignore data folder
+data/
